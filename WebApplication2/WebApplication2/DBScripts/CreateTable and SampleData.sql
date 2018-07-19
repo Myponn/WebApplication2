@@ -1,20 +1,20 @@
 ---- Create Table ----
 CREATE TABLE [dbo].[CardTable](
 	[NameOnCard]  [varchar](50) NOT NULL,
-	[Card_Number] [varchar](16) NOT NULL,
-	[Expire_Date] [varchar](6) NOT NULL
+	[CardNumber] [varchar](16) NOT NULL,
+	[ExpiryDate] [varchar](6) NOT NULL
 ) ON [PRIMARY]
 GO
 CREATE NONCLUSTERED INDEX [UNIX_CardTable] ON [dbo].[CardTable]
 (
-	[Card_Number] ASC,
-	[Expire_Date] ASC,
-	[NameOnCard] ASC
+	[NameOnCard] ASC,
+	[CardNumber] ASC,
+	[ExpiryDate] ASC
 ) ON [PRIMARY]
 GO
 CREATE NONCLUSTERED INDEX [IX_CardTable] ON [dbo].[CardTable]
 (
-	[Card_Number] ASC
+	[NameOnCard] ASC
 ) ON [PRIMARY]
 GO
 
