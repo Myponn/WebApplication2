@@ -11,19 +11,24 @@ namespace WebApplication2.Controllers
 {
     public class CardInfoController : ApiController
     {
-        private CardRepository cardrepo;
-
+        readonly CardServices _Repo;
         public CardInfoController()
         {
-            this.cardrepo = new CardRepository();
+            this._Repo = new CardServices();
         }
+
         [HttpGet]
         public Response<CardInfo> Get(string CardNumber)
         {
             var res = new Response<CardInfo>();
             try
             {
-                res.Obj = this.cardrepo.GetCardInfobyNumber(CardNumber);
+                res.Obj = this._Repo.GetCardbyNumber(CardNumber);
+                if (res.Obj == null)
+                {
+                    res.IsError = true;
+                    res.ResultMessage = ValidateStatus.DoesNotExists;
+                }
             }
             catch(Exception ex)
             {
@@ -39,7 +44,7 @@ namespace WebApplication2.Controllers
             var res = new Response<ValidateResult>();
             try
             {
-                res.Obj = this.cardrepo.ValidateCardInfo(card);
+                res.Obj = this._Repo.ValidateCardInfo(card);
             }
             catch (Exception ex)
             {
