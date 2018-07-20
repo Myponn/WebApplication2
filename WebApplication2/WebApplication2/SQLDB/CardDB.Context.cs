@@ -32,7 +32,7 @@ namespace WebApplication2.SQLDB
     
         public DbSet<CardTable> CardTables { get; set; }
 
-        public ObjectResult<CardTable> GetCardInfobyNumber(string cardNo)
+        public virtual ObjectResult<CardTable> GetCardInfobyNumber(string cardNo)
         {
             var cardNoParameter = cardNo != null ?
                 new ObjectParameter("CardNo", cardNo) :
