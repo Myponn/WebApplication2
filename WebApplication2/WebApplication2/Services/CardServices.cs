@@ -7,7 +7,6 @@ using WebApplication2.Models;
 using System.Text.RegularExpressions;
 using System.Data.Entity.Core.Objects;
 using WebApplication2.SQLDB;
-using AutoMapper;
 
 namespace WebApplication2.Services
 {
